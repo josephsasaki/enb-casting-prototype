@@ -1,0 +1,3 @@
+source .env
+
+psql -h ${DB_HOST} -U ${DB_USERNAME} ${DB_NAME}

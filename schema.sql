@@ -159,3 +159,51 @@ CREATE TABLE casting (
     CONSTRAINT fk_dancer FOREIGN KEY (dancer_id) REFERENCES dancer(dancer_id)
 );
 
+-- REFERENCE TABLE INSERT ---
+
+
+INSERT INTO gender 
+    (gender_title)
+VALUES
+    ('Women'),
+    ('Men'),
+    ('Mixed')
+;
+
+INSERT INTO rank 
+    (rank_name)
+VALUES
+    ('Lead Principle'),
+    ('Principle'),
+    ('First Soloist'),
+    ('Soloist'),
+    ('Junior Soloist'),
+    ('First Artist'),
+    ('Artist Of The Company')
+;
+
+INSERT INTO act_type
+    (act_type_name)
+VALUES
+    ('Prologue'),
+    ('Act I'),
+    ('Act II'),
+    ('Act III'),
+    ('Act IV')
+;
+
+INSERT INTO rule_type
+    (rule_type_name)
+VALUES
+    ('No Conflict'),
+    ('Conflict'),
+    ('Quick Change'),
+    ('Half Mirror')
+;
+
+INSERT INTO position
+    (position_row, position_column)
+SELECT row_index, column_index
+FROM generate_series(0, 150) AS row_index
+CROSS JOIN generate_series(0, 2) AS column_index;
+
